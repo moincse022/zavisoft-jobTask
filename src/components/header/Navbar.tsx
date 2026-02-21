@@ -7,14 +7,15 @@ import { Menu, X, Search, User, ShoppingBag } from "lucide-react";
 import kicks from "../../../public/assets/icon/kicks.svg";
 import userIcon from "../../../public/assets/icon/User.svg";
 import searchIcon from "../../../public/assets/icon/Search.svg";
+import downarrow from "../../../public/assets/icon/down.svg";
 export default function Navbar() {
   const [cartCount] = useState<number>(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { id: 1, title: "New Drops 🔥", href: "#" },
-    { id: 2, title: "Men", href: "#" },
-    { id: 3, title: "Women", href: "#" },
+    { id: 1, title: "New Drops 🔥", href: "#", hasDropdown: false },
+    { id: 2, title: "Men", href: "#", hasDropdown: true },
+    { id: 3, title: "Women", href: "#", hasDropdown: true },
   ];
 
   return (
@@ -53,10 +54,14 @@ export default function Navbar() {
               key={item.id}
               href={item.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="py-3 px-2 text-lg font-semibold text-gray-800 hover:text-black hover:bg-gray-50 rounded-xl transition"
+              className="py-3 px-2 text-lg font-semibold text-gray-800 hover:text-black hover:bg-gray-50 rounded-xl transition  flex 
+        gap-1"
               style={{ animationDelay: `${i * 60}ms` }}
             >
               {item.title}
+              {item.hasDropdown && (
+                <Image src={downarrow} alt="" className="" />
+              )}
             </Link>
           ))}
         </nav>
@@ -78,26 +83,50 @@ export default function Navbar() {
       )}
 
       {/* Main Navbar */}
-      <header className="w-full mt-6  relative z-50">
-        <div className="page-container  bg-[#FAFAFA] rounded-2xl px-6 h-16 flex items-center justify-between shadow-sm">
+      <header className="w-full relative z-50">
+        <div
+          className="
+          page-container
+ 
+      h-[52px] md:h-[96px] 
+      rounded-[12px] md:rounded-[24px] 
+      bg-[#FAFAFA] 
+      flex items-center justify-between 
+      shadow-sm
+      px-4 md:px-8
+    "
+        >
           {/* Mobile Hamburger */}
           <button
             className="md:hidden p-1 rounded-lg hover:bg-gray-100 transition"
             onClick={() => setMobileMenuOpen(true)}
             aria-label="Open menu"
           >
-            <Menu size={26} />
+            <Menu size={20} />
           </button>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+          <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.id}
                 href={item.href}
-                className="text-gray-600 hover:text-black transition-colors duration-150"
+                className="
+        font-rubik
+        text-[16px]
+        font-semibold
+        leading-[100%]
+        text-[#232321]
+        hover:text-black
+        transition-colors
+        flex 
+        gap-1
+      "
               >
                 {item.title}
+                {item.hasDropdown && (
+                  <Image src={downarrow} alt="" className="" />
+                )}
               </Link>
             ))}
           </nav>
@@ -105,32 +134,32 @@ export default function Navbar() {
           {/* Center Logo */}
           <div className="absolute left-1/2 -translate-x-1/2">
             <Link href="/">
-              {/* Replace with your <Image src={kicks} ... /> if you have the SVG */}
               <Image
                 src={kicks}
                 alt="Kicks Logo"
-                className="w-[110px] md:w-[128px] h-[20px] md:h-[32px]"
+                className="w-[80px] h-[20px] md:h-[32px] md:w-[128px] "
                 priority
               />
             </Link>
           </div>
 
           {/* Right Icons */}
-          <div className="flex items-center gap-4">
-            {/* Search — desktop only */}
+          <div className="flex items-center gap-[9px] md:gap-4">
             <button className="hidden md:flex p-2 rounded-xl hover:bg-gray-100 transition">
-              <Image src={searchIcon} alt="User" className="w-6 h-6" />
+              <Image src={searchIcon} alt="Search" className="w-6 h-6" />
             </button>
 
-            {/* User Icon */}
             <button className="p-2 rounded-xl hover:bg-gray-100 transition">
-              <Image src={userIcon} alt="User" className="w-6 h-6" />
+              <Image
+                src={userIcon}
+                alt="User"
+                className="w-4 h-4 md:w-6 md:h-6"
+              />
             </button>
 
-            {/* Cart */}
             <button className="relative p-2 rounded-xl hover:bg-gray-100 transition">
               {cartCount >= 0 && (
-                <span className="absolute -top-1 -right-1 bg-[#FFA52F] text-black text-[10px] font-bold rounded-full w-6 h-6 flex items-center justify-center leading-none">
+                <span className=" bg-[#FFA52F] text-black text-[10px] font-bold rounded-full w-5 h-5 md:w-8 md:h-8 flex items-center justify-center">
                   {cartCount}
                 </span>
               )}

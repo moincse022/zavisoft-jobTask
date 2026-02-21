@@ -25,6 +25,14 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 .page-container {
-  max-width: 1320px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 358px; /* default → mobile */
+  margin: 32px auto; /* top 32px + center */
+}
+
+@media (min-width: 768px) {
+  .page-container {
+    max-width: 1320px; /* desktop */
+    padding: 32px;
+  }
 }
