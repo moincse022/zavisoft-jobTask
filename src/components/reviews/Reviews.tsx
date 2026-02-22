@@ -34,9 +34,9 @@ const reviews = [
 
 const ProductReviews = () => {
   return (
-    <section className="page-container bg-[#e9e9e7] py-[100px]">
+    <section className="page-container md:px-8 bg-[#e9e9e7] py-[20px] md:py-[100px]">
       {/* Container */}
-      <div className="max-w-[1320px] mx-auto px-[60px]">
+      <div className="max-w-[1320px] mx-auto px-4 md:px-[0px]">
         {/* Heading */}
         <div className="flex justify-between items-center mb-12">
           <h2 className="text-4xl font-bold text-black">REVIEWS</h2>

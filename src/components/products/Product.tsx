@@ -3,6 +3,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Product {
   id: number;
@@ -24,43 +25,22 @@ const Product = () => {
   }, []);
 
   return (
-    <section className="page-container  mt-16">
+    <section className="page-container px-4 sm:px-6 lg:px-16 py-10 bg-[#F9F9F9]">
       {/* Heading */}
-      <div className="flex justify-between items-center mb-10 mt-16">
-        <h2
-          className="
-    font-[var(--font-rubik)]
-    font-semibold
-    text-[24px] md:text-[74px]
-    leading-[95%]
-    tracking-[0%]
-    uppercase
-    text-[#232321]
-  "
-        >
-          DON’T MISS OUT <br /> NEW DROPS
+      <div className="flex flex-row justify-between items-start sm:items-center gap-4 sm:gap-6 mb-8">
+        <h2 className="font-bold text-[21px] md:text-[60px] lg:text-[74px] leading-[110%] uppercase text-[#232321]">
+          DON’T MISS OUT
+          <br className="hidden md:block" />
+          NEW DROPS
         </h2>
-        <button
-          className="
-    flex items-center justify-center gap-1
-    h-[48px]
-    px-[32px]
-    py-[8px]
-    rounded-[8px]
-    bg-blue-600
-    text-white
-    font-semibold
-    text-sm
-    hover:bg-blue-700
-    transition
-  "
-        >
+
+        <button className="self-start sm:self-auto h-[42px] sm:h-[48px] px-4 sm:px-6 rounded-lg bg-blue-600 text-white font-semibold text-[11px] sm:text-sm whitespace-nowrap hover:bg-blue-700 transition">
           SHOP NEW DROPS
         </button>
       </div>
 
       {/* Product Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
         {products.slice(0, 4).map((product) => {
           const imageUrl = product.images?.[0]?.startsWith("http")
             ? product.images[0]
@@ -69,34 +49,35 @@ const Product = () => {
           return (
             <div
               key={product.id}
-              className="bg-[#F4F4F4] p-4 rounded-[24px] group transition duration-300"
+              className="group bg-[#F4F4F4] rounded-2xl p-2 md:p-3 sm:p-4 flex flex-col justify-between  "
             >
               {/* Image Box */}
-              <div className="relative bg-[#ECECEC] rounded-[28px] p-6 h-[260px] flex items-center justify-center">
-                {/* New Badge */}
-                <span className="absolute top-4 left-4 bg-blue-600 text-white text-xs px-3 py-1 rounded-full font-medium">
+              <div className="relative bg-[#ECECEC] rounded-2xl p-4 sm:p-6 aspect-square flex items-center justify-center overflow-hidden">
+                {/* Badge */}
+                <span className="absolute top-0 left-0 bg-blue-600 text-white text-[10px] sm:text-xs px-3 py-1 font-medium rounded-tl-xl rounded-br-xl">
                   New
                 </span>
 
                 <Image
                   src={imageUrl}
                   alt={product.title}
-                  width={220}
-                  height={220}
-                  className="object-contain group-hover:scale-105 transition duration-300"
+                  width={300}
+                  height={300}
+                  className="object-contain w-full h-full "
                 />
               </div>
-
               {/* Title */}
-              <h3 className="mt-5 text-[18px] font-bold uppercase text-[#232321] leading-snug">
+              <h3 className="mt-4 text-[13px] sm:text-[16px] md:text-[24px] font-bold uppercase text-[#232321] leading-snug line-clamp-2">
                 {product.title}
               </h3>
-
-              {/* Button */}
-              <button className="mt-5 w-full bg-[#232321] text-white h-[48px] rounded-[10px] text-sm font-semibold transition hover:opacity-90">
-                VIEW PRODUCT -{" "}
-                <span className="text-[#F6C90E]">${product.price}</span>
-              </button>
+              {/* Button */}{" "}
+              <Link href={`/products/${product.id}`}>
+                <button className="mt-4  cursor-pointer w-full bg-[#232321] text-white py-2 sm:py-3 rounded-lg text-[12px] sm:text-sm font-semibold hover:opacity-90 transition">
+                  {" "}
+                  VIEW PRODUCT -{" "}
+                  <span className="text-[#F6C90E]">${product.price}</span>{" "}
+                </button>
+              </Link>
             </div>
           );
         })}

@@ -2,49 +2,58 @@
 
 import { Facebook, Instagram, Twitter } from "lucide-react";
 import logo from "../../../public/assets/icon/Logo.svg";
+import footerlogo from "../../../public/assets/icon/footer-icon.svg";
 import Image from "next/image";
 
 export default function Footer() {
   return (
-    <section className="page-container bg-[#e9e9e7] pt-16 pb-20">
-      <div className="max-w-[1320px] mx-auto px-[60px]">
-        {/* Newsletter Section */}
-        <div className="relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-t-[40px] px-12 py-16 overflow-hidden">
-          <div className="flex justify-between items-center">
+    <section className=" page-container bg-[#e9e9e7] pt-12 md:pt-16 pb-16 md:pb-20">
+      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
+        {/* ================= Newsletter Section ================= */}
+        <div className="relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-[30px] md:rounded-t-[40px] px-6 sm:px-10 md:px-12 py-10 md:py-16 overflow-hidden">
+          <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-8">
             {/* Left Content */}
-            <div>
-              <h2 className="text-white text-4xl font-bold leading-snug">
-                JOIN OUR KICKSPLUS <br /> CLUB & GET 15% OFF
+            <div className="max-w-xl">
+              <h2 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold leading-snug">
+                JOIN OUR KICKSPLUS <br className="hidden sm:block" /> CLUB & GET
+                15% OFF
               </h2>
 
-              <p className="text-white/80 mt-3">
+              <p className="text-white/80 mt-3 text-sm sm:text-base">
                 Sign up for free! Join the community.
               </p>
 
               {/* Input */}
-              <div className="flex mt-6">
+              <div className="flex flex-col sm:flex-row mt-6 gap-3">
                 <input
                   type="email"
                   placeholder="Email address"
-                  className="px-4 py-3 w-[260px] rounded-l-md outline-none"
+                  className="px-4 py-3 w-full sm:w-[260px] rounded-xl border border-white bg-transparent text-white placeholder:text-white/60 focus:outline-none"
                 />
-                <button className="bg-black text-white px-6 rounded-r-md">
+                <button className="bg-black text-white px-6 py-3 rounded-xl">
                   SUBMIT
                 </button>
               </div>
             </div>
 
-            {/* Right Big Logo */}
-            <h1 className="text-white/80 text-[120px] font-extrabold tracking-wide">
-              KICKS<span className="text-yellow-400">+</span>
-            </h1>
+            {/* Right Logo */}
+            <div className="relative flex justify-center md:justify-end">
+              <Image
+                src={footerlogo}
+                alt="Footer Logo"
+                className="w-[140px] sm:w-[180px] md:w-[220px]"
+              />
+              <div className="absolute -top-3 right-4 bg-yellow-400 rounded-full w-6 h-6 flex justify-center items-center text-sm font-bold">
+                +
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Footer Bottom */}
-        <div className="relative bg-[#232321] text-white rounded-[40px] px-12 py-48 overflow-hidden -mt-8 z-10">
+        {/* ================= Footer Bottom ================= */}
+        <div className="relative bg-[#232321] text-white rounded-[30px] md:rounded-[40px] px-6 sm:px-10 md:px-12 py-16 md:py-24 overflow-hidden -mt-8 z-10">
           {/* Columns */}
-          <div className="grid md:grid-cols-4 gap-12 relative z-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 relative z-10 mb-10">
             {/* About */}
             <div>
               <h3 className="text-yellow-400 font-semibold text-lg mb-4">
@@ -52,7 +61,7 @@ export default function Footer() {
               </h3>
               <p className="text-gray-400 text-sm leading-relaxed">
                 We are the biggest hyperstore in the universe. We got you all
-                cover with our exclusive collections and latest drops.
+                covered with our exclusive collections and latest drops.
               </p>
             </div>
 
@@ -96,12 +105,21 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Huge Background Text */}
-          <h1 className="absolute bottom-[-40px] left-0 text-white/5 text-[200px] font-extrabold tracking-wide select-none z-30">
-            <Image src={logo} alt="" className="w-[1262px] mx-[29px]" />
-          </h1>
+          {/* Big Background Logo */}
+          <div className="absolute bottom-0 left-0 right-0 pointer-events-none flex justify-center z-100">
+            <Image
+              src={logo}
+              alt="Big Logo"
+              className="w-[400px] sm:w-[700px] lg:w-[1000px] text-[#fff]"
+            />
+          </div>
         </div>
       </div>
+
+      {/* Copyright */}
+      <p className="text-center text-sm py-4 text-gray-600">
+        © All rights reserved
+      </p>
     </section>
   );
 }
