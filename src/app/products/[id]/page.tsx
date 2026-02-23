@@ -7,6 +7,7 @@ import { useParams } from "next/navigation";
 import Navbar from "@/components/header/Navbar";
 import Product from "@/components/products/Product";
 import love from "../../../../public/assets/icon/love.svg";
+import Footer from "@/components/footer/Footer";
 
 interface ProductType {
   id: number;
@@ -216,8 +217,8 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
-      {/* <ProductDetails /> */}
       <Product />
+      <Footer />
     </>
   );
 };
