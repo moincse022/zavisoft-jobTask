@@ -8,6 +8,8 @@ import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 import "swiper/css";
 import "swiper/css/navigation";
+import { useSelector } from "react-redux";
+import { RootState } from "@reduxjs/toolkit/query";
 
 interface Category {
   id: number;

@@ -10,7 +10,7 @@ export default function Footer() {
     <section className=" page-container bg-[#e9e9e7] pt-12 md:pt-16 pb-16 md:pb-20">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16">
         {/* ================= Newsletter Section ================= */}
-        <div className="relative bg-gradient-to-r from-blue-600 to-indigo-600 rounded-[30px] md:rounded-t-[40px] px-6 sm:px-10 md:px-12 py-10 md:py-16 overflow-hidden">
+        <div className="relative bg-gradient-to-r from-blue-600 to-indigo-600 md:rounded-t-[40px] px-6 sm:px-10 md:px-12 py-10 md:py-16 overflow-hidden">
           <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-8">
             {/* Left Content */}
             <div className="max-w-xl">
@@ -24,26 +24,26 @@ export default function Footer() {
               </p>
 
               {/* Input */}
-              <div className="flex flex-col sm:flex-row mt-6 gap-3">
+              <div className="flex  sm:flex-row mt-6 gap-3">
                 <input
                   type="email"
                   placeholder="Email address"
                   className="px-4 py-3 w-full sm:w-[260px] rounded-xl border border-white bg-transparent text-white placeholder:text-white/60 focus:outline-none"
                 />
-                <button className="bg-black text-white px-6 py-3 rounded-xl">
+                <button className="bg-black text-white px-6 py-2 rounded-xl">
                   SUBMIT
                 </button>
               </div>
             </div>
 
             {/* Right Logo */}
-            <div className="relative flex justify-center md:justify-end">
+            <div className="relative flex justify-start md:justify-end">
               <Image
                 src={footerlogo}
                 alt="Footer Logo"
                 className="w-[140px] sm:w-[180px] md:w-[220px]"
               />
-              <div className="absolute -top-3 right-4 bg-yellow-400 rounded-full w-6 h-6 flex justify-center items-center text-sm font-bold">
+              <div className="absolute -top-3 md:-top-4 right-28 md:-right-4 bg-yellow-400 rounded-full w-6 h-6 flex justify-center items-center text-sm font-bold">
                 +
               </div>
             </div>
@@ -51,7 +51,7 @@ export default function Footer() {
         </div>
 
         {/* ================= Footer Bottom ================= */}
-        <div className="relative bg-[#232321] text-white rounded-[30px] md:rounded-[40px] px-6 sm:px-10 md:px-12 py-16 md:py-24 overflow-hidden -mt-8 z-10">
+        <div className="relative bg-[#232321] text-white rounded-[30px] md:rounded-[40px] px-6 sm:px-10 md:px-12 py-8 md:py-30 overflow-hidden -mt-8 z-10">
           {/* Columns */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 relative z-10 mb-10">
             {/* About */}
